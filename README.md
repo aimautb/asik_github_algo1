@@ -9,14 +9,14 @@
 ## 🎯 Goals of the Assignment
 - Implement core **Divide and Conquer algorithms** with safe recursion patterns.
 - Perform **theoretical analysis** of recurrence relations using:
-    - **Master Theorem** (all 3 cases)
-    - **Akra–Bazzi intuition** for more complex cases.
+  - **Master Theorem** (all 3 cases)
+  - **Akra–Bazzi intuition** for more complex cases.
 - Validate theoretical results through **empirical experiments**.
 - Collect metrics:
-    - Execution time (milliseconds)
-    - Number of comparisons
-    - Number of basic operations (swaps, copies)
-    - Recursion depth (current and maximum)
+  - Execution time (milliseconds)
+  - Number of comparisons
+  - Number of basic operations (swaps, copies)
+  - Recursion depth (current and maximum)
 - Follow a clean **GitHub workflow** with feature branches and structured commits.
 
 ---
@@ -45,18 +45,18 @@ src/
 
 ## ⚙️ Architecture Notes
 - **Recursion depth control**:
-    - QuickSort always recurses into the *smaller partition* and iterates over the larger one → depth is guaranteed to be `O(log n)` even in bad cases.
-    - MergeSort switches to **InsertionSort** for small subarrays (threshold `CUTOFF = 16`) to reduce recursion overhead.
+  - QuickSort always recurses into the *smaller partition* and iterates over the larger one → depth is guaranteed to be `O(log n)` even in bad cases.
+  - MergeSort switches to **InsertionSort** for small subarrays (threshold `CUTOFF = 16`) to reduce recursion overhead.
 - **Buffer reuse in MergeSort**:
-    - A single buffer array is reused for merging to avoid excessive memory allocations.
+  - A single buffer array is reused for merging to avoid excessive memory allocations.
 - **Non-static metrics**:
-    - Metrics are passed as objects to algorithms instead of using static counters.
-    - This allows safe parallel tests and prevents incorrect data between runs.
+  - Metrics are passed as objects to algorithms instead of using static counters.
+  - This allows safe parallel tests and prevents incorrect data between runs.
 - **Metrics track**:
-    - Number of comparisons
-    - Number of operations (assignments/swaps)
-    - Current and maximum recursion depth
-    - Execution time (ms)
+  - Number of comparisons
+  - Number of operations (assignments/swaps)
+  - Current and maximum recursion depth
+  - Execution time (ms)
 
 ---
 
@@ -76,7 +76,6 @@ src/
 
 The CLI automatically generates CSV files for experiments.  
 **CSV format:**
-
 ```
 algorithm,n,timeMillis,comparisons,operations,maxDepth
 mergesort,1000,3,10850,12100,11
@@ -147,7 +146,7 @@ assertTrue(metrics.getMaxDepth() <= 2 * (int)Math.floor(Math.log(n) / Math.log(2
 
 ---
 
-## Next Steps
-- Add more performance plots with large datasets.
-- Measure **cache performance effects** and **Garbage Collector impact**.
-- Optimize Closest Pair algorithm with better strip filtering.
+This project demonstrates not only correct implementations but also safe recursion patterns,  
+clean metrics collection, and reproducibility through CLI experiments.  
+All results confirm theoretical complexity bounds, and the Git workflow ensures maintainability.  
+The repository is ready for submission and oral defense. ✅
