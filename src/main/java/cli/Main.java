@@ -5,27 +5,27 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        int size = 10000;   // размер массива
-        int trials = 5;     // количество повторов
+        int size = 10000;
+        int trials = 5;
 
-        // Для анализа будем хранить среднее время
+
         long mergeSortTime = 0;
         long quickSortTime = 0;
 
         try (FileWriter csv = new FileWriter("results.csv")) {
-            // Заголовок CSV
+
             csv.write("algo,size,trial,time(ms),comparisons,operations,maxDepth\n");
 
-            // MergeSort
+
             mergeSortTime = runAndMeasure(new MergeSortRunner(), size, trials, csv);
 
-            // QuickSort
+
             quickSortTime = runAndMeasure(new QuickSortRunner(), size, trials, csv);
 
-            // Select (для медианы/поиска k-го элемента)
+
             runAndMeasure(new SelectRunner(), size, trials, csv);
 
-            // Closest Pair
+
             runAndMeasure(new ClosestPairRunner(), size, trials, csv);
         }
 
@@ -46,9 +46,9 @@ public class Main {
         long totalTime = 0;
         for (int t = 1; t <= trials; t++) {
             long start = System.nanoTime();
-            runner.run(size, 1, csv); // запускаем один trial
+            runner.run(size, 1, csv);
             long end = System.nanoTime();
-            totalTime += (end - start) / 1_000_000; // в миллисекундах
+            totalTime += (end - start) / 1_000_000;
         }
         return totalTime;
     }

@@ -10,7 +10,7 @@ import java.io.IOException;
 public class QuickSortRunner implements AlgorithmRunner {
     @Override
     public void run(int size, int trials, FileWriter csv) throws IOException {
-        SortingAlgorithm algo = new QuickSort(); // ✅ создаём объект
+        SortingAlgorithm algo = new QuickSort();
         for (int t = 1; t <= trials; t++) {
             int[] arr = randomArray(size);
             Metrics m = new Metrics();
