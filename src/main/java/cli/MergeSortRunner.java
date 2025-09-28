@@ -10,7 +10,7 @@ import java.io.IOException;
 public class MergeSortRunner implements AlgorithmRunner {
     @Override
     public void run(int size, int trials, FileWriter csv) throws IOException {
-        SortingAlgorithm algo = new MergeSort(); // ✅ создаём объект
+        SortingAlgorithm algo = new MergeSort();
         for (int t = 1; t <= trials; t++) {
             int[] arr = randomArray(size);
             Metrics m = new Metrics();
